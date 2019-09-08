@@ -13,6 +13,8 @@
   },
   "root": true,
   "rules": {
+    "no-unused-vars": "warn",
+    "no-extra-semi": "error",
     "react/prefer-stateless-function": "warn",
     "react/self-closing-comp": [
       "warn",
