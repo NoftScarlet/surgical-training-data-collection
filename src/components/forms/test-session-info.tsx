@@ -1,13 +1,30 @@
-import * as React from "react";
+import * as React from 'react';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
-export default class Example extends React.Component {
+type MyState = {
+  participantName: string;
+  date: string;
+  testDay: string;
+  testName: string;
+};
+
+export default class Example extends React.Component<{}, any> {
+  constructor(props) {
+    super(props);
+    this.state = {
+      participantName: 'Did not enter',
+      date: 'Did not enter',
+      testDay: 'Did not select',
+      testName: 'Did not select',
+    };
+  }
+
   render() {
     return (
       <Form>
         <FormGroup>
           <Label for="exampleEmail">Plain Text (Static)</Label>
-          <Input plaintext value="Some plain text/ static value" />
+          <Input plaintext value={this.state.participantName} />
         </FormGroup>
         <FormGroup>
           <Label for="exampleEmail">Email</Label>
@@ -124,13 +141,13 @@ export default class Example extends React.Component {
           <Input type="file" name="file" id="exampleFile" />
           <FormText color="muted">
             This is some placeholder block-level help text for the above input.
-            It's a bit lighter and easily wraps to a new line.
+            a bit lighter and easily wraps to a new line.
           </FormText>
         </FormGroup>
         <FormGroup check>
           <Label check>
             <Input type="radio" /> Option one is this and that—be sure to
-            include why it's great
+            include why it us great
           </Label>
         </FormGroup>
         <FormGroup check>
