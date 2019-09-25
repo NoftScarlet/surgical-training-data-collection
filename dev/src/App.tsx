@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
@@ -23,4 +23,65 @@ const App: React.FC = () => {
   );
 }
 
+export default App;
+*/
+
+import React, { Component } from 'react';
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, Container, Row, Col, Jumbotron, Button } from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Body from './components/Body/Body'
+
+interface Props {
+  toggle: boolean;
+}
+
+interface State {
+  isOpen: boolean;
+}
+
+class App extends Component<Props, State>{
+  constructor(props: Props){
+    super(props);
+    this.toggle = this.toggle.bind(this);
+    this.state = { isOpen: false };
+  }
+  toggle(){
+    this.setState({ isOpen: !this.state.isOpen });
+  }
+  render(){
+    return(
+      <div>
+        <Navbar color="inverse" light expand="md">
+          <NavbarBrand href="/">reactstrap</NavbarBrand>
+          <NavbarToggler onClick={this.toggle} />
+          <Collapse isOpen={this.state.isOpen} navbar>
+            <Nav className="ml-auto" navbar>
+              <NavItem>
+                <NavLink href="/components/">Components</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="https://github.com/reactstrap
+                /reactstrap">Github</NavLink>
+              </NavItem>
+            </Nav>
+          </Collapse>
+        </Navbar>
+        <Jumbotron>
+          <Container>
+            <Body />
+            <Row>
+              <Col>
+                <h1>Welcome to React</h1>
+                <p><Button tag="a" color="success" size="large"
+                           href="http://reactstrap.github.io"
+                           target="_blank">View Reactstrap
+                  Docs</Button></p>
+              </Col>
+            </Row>
+          </Container>
+        </Jumbotron>
+      </div>
+    );
+  }
+}
 export default App;
