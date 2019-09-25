@@ -1,5 +1,5 @@
 import React from 'react';
-import ConsentForm from "../Forms/ConsentForm/ConsentForm"
+import Participantinfo from "../Forms/Participantinfo/ParticipantInfo"
 
 interface Props {
 
@@ -13,7 +13,7 @@ class Body extends React.Component {
 
   render(): React.ReactNode {
     return (
-      <ConsentForm />
+      <Participantinfo />
     )
   }
 }
