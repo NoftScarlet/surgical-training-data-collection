@@ -1,4 +1,3 @@
-
 import * as React from 'react';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
@@ -7,18 +6,18 @@ export interface State {
   name: string,
   sessionName: string,
   sessionDay: string,
-  group: string
+  group: string,
   date: Date
 }
 
 export interface Props {
-  date: string
+  date: string,
 }
 
 
 export default class ParticipantInfo extends React.Component <Props, State> {
   static defaultProps: Props = {
-    date: Date() // not used for now
+    date: Date(), // not used for now
   }
 
   state: Readonly<State> = {
@@ -26,7 +25,7 @@ export default class ParticipantInfo extends React.Component <Props, State> {
     sessionName: "Not Entered",
     sessionDay: "Not Entered",
     group: "Not Entered",
-    date: new Date()
+    date: new Date(),
   }
 
   render() {
@@ -48,7 +47,7 @@ export default class ParticipantInfo extends React.Component <Props, State> {
         </FormGroup>
 
         <FormGroup>
-          <Label for="sessionDay">Session Name</Label>
+          <Label for="sessionDay">Session Day</Label>
           <Input type="select" name="sessionDay" id="sessionDay">
             <option>Please Select</option>
             <option>Day 1</option>
@@ -96,8 +95,9 @@ export default class ParticipantInfo extends React.Component <Props, State> {
             <Input type="checkbox" />{' '}
             Check me out
           </Label>
+
         </FormGroup>
-        <Button>Submit</Button>
+        <Input type="submit" value={"Submit"} />
       </Form>
     );
   }
