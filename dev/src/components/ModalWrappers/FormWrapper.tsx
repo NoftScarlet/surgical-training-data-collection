@@ -1,27 +1,49 @@
-import {ModalBody, ModalHeader, Modal} from 'reactstrap';
+import { ModalBody, ModalHeader, Modal, Button } from 'reactstrap';
 import ParticipantInfo from '../Body/Body';
 import * as React from 'react';
 
 interface Props {
-  popupState: boolean,
+
+  ModalName: string
 }
 
-class FormWrapper extends React.Component<Props, {}> {
+interface State {
+  popupState: boolean
+}
 
-  render () {
+class FormWrapper extends React.Component<Props, State> {
+
+  static defaultProps: Props = {
+    ModalName: 'Participant Information',
+  };
+
+  state: State = {
+    popupState: true,
+  };
+
+  toggle = () => {
+    this.setState(prevState => ({
+      popupState: !prevState.popupState,
+    }));
+  };
+
+
+  render() {
     return (
       <div>
-        <Modal isOpen={this.props.popupState} >
-          <ModalHeader> Participant Information </ModalHeader>
+        <Button color="danger" onClick={this.toggle}>{this.props.ModalName}</Button>
+        <Modal isOpen={this.state.popupState}>
+          <ModalHeader>{this.props.ModalName}</ModalHeader>
           <ModalBody>
-            <ParticipantInfo />
+            <ParticipantInfo/>
           </ModalBody>
         </Modal>
+
       </div>
-    )
+    );
   }
 
 
 }
 
-export default FormWrapper
+export default FormWrapper;
