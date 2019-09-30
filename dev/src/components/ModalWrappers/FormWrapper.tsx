@@ -1,9 +1,8 @@
 import { ModalBody, ModalHeader, Modal, Button } from 'reactstrap';
-import ParticipantInfo from '../Body/Body';
+import ParticipantInfo from '../Forms/ParticipantInfo/ParticipantInfo';
 import * as React from 'react';
 
 interface Props {
-
   ModalName: string
 }
 
@@ -27,18 +26,16 @@ class FormWrapper extends React.Component<Props, State> {
     }));
   };
 
-
   render() {
     return (
       <div>
         <Button color="danger" onClick={this.toggle}>{this.props.ModalName}</Button>
-        <Modal isOpen={this.state.popupState}>
+        <Modal isOpen={this.state.popupState} toggle={this.toggle}>
           <ModalHeader>{this.props.ModalName}</ModalHeader>
           <ModalBody>
             <ParticipantInfo/>
           </ModalBody>
         </Modal>
-
       </div>
     );
   }

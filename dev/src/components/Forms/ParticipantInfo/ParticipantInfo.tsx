@@ -1,19 +1,15 @@
 import * as React from 'react';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-
-
-export interface State {
-  name: string,
+import { Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+interface State {
+  parName: string,
   sessionName: string,
   sessionDay: string,
   group: string,
   date: Date
 }
-
-export interface Props {
+interface Props {
   date: string,
 }
-
 
 export default class ParticipantInfo extends React.Component <Props, State> {
   static defaultProps: Props = {
@@ -21,19 +17,32 @@ export default class ParticipantInfo extends React.Component <Props, State> {
   }
 
   state: Readonly<State> = {
-    name: "Not Entered",
+    parName: "Not Entered",
     sessionName: "Not Entered",
     sessionDay: "Not Entered",
     group: "Not Entered",
     date: new Date(),
   }
 
+  handleSubmit = (event: any) => {
+    event.preventDefault();
+    const data = new FormData(event.target);
+    for (let value of data.values()) {
+      console.log(value);
+    }
+    console.log(event.target[0].value)
+
+    //post the values to
+
+  }
+
   render() {
     return (
-      <Form>
+      <div>
+      <Form onSubmit={this.handleSubmit}>
         <FormGroup>
           <Label for="parName">Participant Name</Label>
-          <Input type="text" name="name" id="parName" placeholder="Please enter participant name" />
+          <Input type="text" name="parName" id="parName" placeholder="Please enter participant name" />
         </FormGroup>
 
         <FormGroup>
@@ -97,8 +106,9 @@ export default class ParticipantInfo extends React.Component <Props, State> {
           </Label>
 
         </FormGroup>
-        <Input type="submit" value={"Submit"} />
+        <Input type="submit" value="Submit" />
       </Form>
+      </div>
     );
   }
 }
