@@ -39,8 +39,10 @@ module.exports = {
         loader: "file-loader",
         options: {
           name: "assets/img/[name].[ext]?[hash]"
-        }
-      }
+        },
+      },
+      { test: /\.html$/, loader: 'html-loader?attrs[]=video:src' },
+      { test: /\.(mov|mp4)$/, loader: 'url-loader' }
     ]
   },
   plugins: [
