@@ -26,11 +26,11 @@ export default class ParticipantInfo extends React.Component <Props, State> {
     date: new Date(),
   };
 
-  handleSubmit = (event: any) => {
+  handleSubmit = (event : any) => {
     event.preventDefault();
-    const data = new FormData(event.target);
+    const data : any = new FormData(event.target);
     for (let value of data.values()) {
-      console.log(value);
+      console.log(data);
     }
     console.log(event.target[0].value);
 
