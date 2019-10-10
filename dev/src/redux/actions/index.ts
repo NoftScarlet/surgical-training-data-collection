@@ -1,5 +1,3 @@
-import { action } from "typesafe-actions";
-
 // use typescript enum rather than action constants
 export enum actionTypes {
   ADD_CON = "ADD_CONSENT_FORM",
@@ -9,10 +7,20 @@ export enum actionTypes {
 }
 
 
-export const actionCreators = {
-  //action is created on invoking the following properties
-  addConsentForm: (item: object) => action(actionTypes.ADD_CON, item),
-  addParticipantInfo: (item: object) => action(actionTypes.ADD_PAR, item),
-  addSurvey: (item: object) => action(actionTypes.ADD_SUR, item),
-  delete: (idx: number) => action(actionTypes.DELETE, idx)
-};
+export interface addConsentForm {
+  type: actionTypes.ADD_CON;
+  data: object;
+}
+
+export function addParticipantInfo(data : object) {
+  return {
+    type: actionTypes.ADD_PAR,
+    data
+  }
+}
+export function addSurvey(data : object) {
+  return {
+    type: actionTypes.ADD_SUR,
+    data
+  }
+}
