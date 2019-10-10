@@ -3,24 +3,37 @@ export enum actionTypes {
   ADD_CON = "ADD_CONSENT_FORM",
   ADD_PAR = "ADD_PARTICIPANT_INFO",
   ADD_SUR = "ADD_SURVEY",
-  DELETE = "DELETE"
 }
 
+interface addConsentForm {type: typeof actionTypes.ADD_CON, data: object}
+interface addParticipantInfo {type: typeof actionTypes.ADD_PAR, data: object}
+interface addSurvey {type: typeof actionTypes.ADD_SUR, data: object}
 
-export interface addConsentForm {
-  type: actionTypes.ADD_CON;
-  data: object;
-}
 
-export function addParticipantInfo(data : object) {
+const addConsentForm = (data : object) => {
+  return {
+    type: actionTypes.ADD_CON,
+    data
+  }
+};
+
+
+const addParticipantInfo = (data : object) => {
   return {
     type: actionTypes.ADD_PAR,
     data
   }
-}
-export function addSurvey(data : object) {
+};
+
+const addSurvey = (data : object) => {
   return {
     type: actionTypes.ADD_SUR,
     data
   }
-}
+};
+
+
+export type Actions =
+  addConsentForm |
+  addParticipantInfo |
+  addSurvey

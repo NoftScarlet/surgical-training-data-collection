@@ -1,21 +1,20 @@
-import * as MyTypes from "MyTypes";
 import { actionTypes } from "../actions/";
+import { Actions } from "../actions/";
+
 
 interface IFormModel {
   consentFormData: object;
   participantInfoData: object;
   surveyData: object;
-  list: string[];
 }
 
 export const initialState: IFormModel = {
   consentFormData: {},
   participantInfoData: {},
   surveyData: {},
-  list: ["Do the laundry", "Do the dishes"]
 };
 
-export const FormReducer = (state: IFormModel = initialState, action: MyTypes.RootAction) => {
+const FormReducer = (state: IFormModel = initialState, action: Actions) => {
 
 
   switch (action.type) {
@@ -44,18 +43,9 @@ export const FormReducer = (state: IFormModel = initialState, action: MyTypes.Ro
     }
 
 
-    case actionTypes.DELETE: {
-      const oldList = [...state.list];
-      oldList.splice(action.payload, 1);
-      const newList = oldList;
-
-      return {
-        ...state,
-        count: state.count - 1,
-        list: newList
-      };
-    }
     default:
       return state;
   }
 };
+
+export default FormReducer;
