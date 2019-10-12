@@ -1,5 +1,6 @@
 import { actionTypes } from "../actions/";
 import { Actions } from "../actions/";
+import { combineReducers } from 'redux';
 
 
 interface IFormModel {
@@ -48,4 +49,9 @@ const FormReducer = (state: IFormModel = initialState, action: Actions) => {
   }
 };
 
-export default FormReducer;
+const rootReducer = combineReducers({
+  form: FormReducer,
+});//important
+
+
+export default rootReducer;
