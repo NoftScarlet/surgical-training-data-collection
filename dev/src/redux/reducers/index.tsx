@@ -22,16 +22,18 @@ const FormReducer = (state: IFormModel = initialState, action: Actions) => {
 
 
     case actionTypes.ADD_CON: {
+      console.log("dispatched");
+
       return {
         ...state,
-        consentFormData: state.consentFormData
-      };
+        consentFormData: action.data
+      }
     }
 
     case actionTypes.ADD_PAR: {
       return {
         ...state,
-        consentFormData: state.participantInfoData
+        participantInfoData: action.data
       };
     }
 
@@ -39,7 +41,7 @@ const FormReducer = (state: IFormModel = initialState, action: Actions) => {
     case actionTypes.ADD_SUR: {
       return {
         ...state,
-        consentFormData: state.surveyData
+        surveyData: action.data
       };
     }
 

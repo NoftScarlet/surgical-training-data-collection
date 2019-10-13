@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { store } from '../../../redux/store';
+import {addParticipantInfo} from '../../../redux/actions';
 
 interface State {
   parName: string,
@@ -29,6 +31,8 @@ export default class ParticipantInfo extends React.Component <Props, State> {
   handleSubmit = (event : any) => {
     event.preventDefault();
     const data : any = new FormData(event.target);
+    store.dispatch(addParticipantInfo(data))
+
     for (let value of data.values()) {
       console.log(data);
     }

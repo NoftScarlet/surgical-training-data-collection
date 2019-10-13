@@ -10,7 +10,7 @@ interface addParticipantInfo {type: typeof actionTypes.ADD_PAR, data: object}
 interface addSurvey {type: typeof actionTypes.ADD_SUR, data: object}
 
 
-const addConsentForm = (data : object) => {
+export const addConsentForm = (data : object) => {
   return {
     type: actionTypes.ADD_CON,
     data
@@ -18,14 +18,14 @@ const addConsentForm = (data : object) => {
 };
 
 
-const addParticipantInfo = (data : object) => {
+export const addParticipantInfo = (data : object) => {
   return {
     type: actionTypes.ADD_PAR,
     data
   }
 };
 
-const addSurvey = (data : object) => {
+export const addSurvey = (data : object) => {
   return {
     type: actionTypes.ADD_SUR,
     data
