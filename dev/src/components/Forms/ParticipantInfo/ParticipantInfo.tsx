@@ -13,10 +13,11 @@ interface State {
 
 interface Props {
   date: string,
+  buttonClick: any
 }
 
 export default class ParticipantInfo extends React.Component <Props, State> {
-  static defaultProps: Props = {
+  static defaultProps: { date: string } = {
     date: Date(), // not used for now
   };
 
@@ -96,7 +97,7 @@ export default class ParticipantInfo extends React.Component <Props, State> {
             <Label for="exampleText">Date</Label>
             <Input type="textarea" name="text" id="exampleText" defaultValue={this.state.date.toString()}/>
           </FormGroup>
-          <Input type="submit" value="Submit"/>
+          <Input type="submit" value="Submit" onClick={(e : React.MouseEvent)=>this.props.buttonClick(e)}/>
         </Form>
       </div>
     );

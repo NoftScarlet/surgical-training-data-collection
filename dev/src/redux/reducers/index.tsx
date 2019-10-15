@@ -23,6 +23,7 @@ const FormReducer = (state: IFormModel = initialState, action: Actions) => {
 
     case actionTypes.ADD_CON: {
       console.log("dispatched");
+      console.log(action.data);
 
       return {
         ...state,
@@ -31,6 +32,8 @@ const FormReducer = (state: IFormModel = initialState, action: Actions) => {
     }
 
     case actionTypes.ADD_PAR: {
+      console.log("dispatched");
+      console.log(action.data);
       return {
         ...state,
         participantInfoData: action.data

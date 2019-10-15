@@ -2,6 +2,7 @@ import { ModalBody, ModalHeader, Modal, Button } from 'reactstrap';
 import ParticipantInfo from '../Forms/ParticipantInfo/ParticipantInfo';
 import * as React from 'react';
 
+
 interface Props {
   ModalName: string
 }
@@ -11,6 +12,8 @@ interface State {
 }
 
 class FormWrapper extends React.Component<Props, State> {
+
+
 
   static defaultProps: Props = {
     ModalName: 'Participant Information',
@@ -32,8 +35,8 @@ class FormWrapper extends React.Component<Props, State> {
         <Button color="danger" onClick={this.toggle}>{this.props.ModalName}</Button>
         <Modal isOpen={this.state.popupState} toggle={this.toggle}>
           <ModalHeader>{this.props.ModalName}</ModalHeader>
-          <ModalBody>
-            <ParticipantInfo/>
+          <ModalBody >
+            <ParticipantInfo buttonClick={this.toggle}/>
           </ModalBody>
         </Modal>
       </div>
